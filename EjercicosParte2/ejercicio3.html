@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio3</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+	<header>
+		<section id="menu">
+			<ul>
+				<a href="index.html">Inicio</a>
+				<a href="ejercicio1.html">Banco</a>
+				<a href="ejercicio2.html">Ventas</a>
+				<a href="ejercicio3.html">Tiendita</a>
+				<a href="ejercicio4.html">Calificacion</a>
+				<a href="ejercicio5.html">Porcentaje de alumnos</a>
+				<a href="ejercicio6.html">Calcula tu edad</a>
+
+			</ul>
+		</section>
+	</header>
+	
+	<script type="text/javascript">
+		function validate_cantidad(monto){
+			var monto=document.getElementById("cantidad").value;
+  			try{
+	  			if(monto>100000000){
+	  				return false;
+	  			}else if(monto<=0){
+	  				return false;
+	  			}else{
+	  				return true;
+	  			}
+	  		}catch{
+	  			return false;
+	  		}
+        }
+
+		function calcularMonto(){
+			var monto=document.getElementById("cantidad").value;
+			if(validate_cantidad(monto)==true){
+				total=monto*0.92;
+				document.getElementById("result").innerHTML="El total de la compra con el descuento es de $"+total;
+  			}else{
+    			document.getElementById("result").innerHTML="El monto ingresado es invalido";
+    			}
+    		}
+	</script>
+
+
+	<div class="container">
+		<form>
+			<h1>Calcula el descuento</h1>
+			<h4>Ingresa el total de tu compra</h4>
+			<input type="number" name="cantidad" id="cantidad">
+			<input type="button" id="boton" value="Calcular monto" onclick="javascript:calcularMonto();" />
+			<h4>Total: </h4>
+            <div id="result"></div>
+		</form>
+	</div>
+
+
+
+</body>
+</html>

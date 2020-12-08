@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio1</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+	<header>
+		<section id="menu">
+			<ul>
+				<a href="index.html">Inicio</a>
+				<a href="ejercicio1.html">Banco</a>
+				<a href="ejercicio2.html">Ventas</a>
+				<a href="ejercicio3.html">Tiendita</a>
+				<a href="ejercicio4.html">Calificacion</a>
+				<a href="ejercicio5.html">Porcentaje de alumnos</a>
+				<a href="ejercicio6.html">Calcula tu edad</a>
+
+			</ul>
+		</section>
+	</header>
+	
+<script type="text/javascript">
+		function validate_inv(inv){
+			var inv=parseInt(document.getElementById("inversion").value);
+  			try{
+	  			if (inv<0 | inv>1000000000000){
+	  				return false;
+	  			}else{
+	  				return true;
+	  			}
+	  		}catch{
+	  			return false;
+	  		}
+        }
+
+		function calcularGanancia(){
+			var inv=parseInt(document.getElementById("inversion").value);
+			if(validate_inv(inv)==true){
+				grr=((inv*108.7)/100);
+				gana=(grr-inv);
+				
+				document.getElementById("result1").innerHTML="La cantidad ingertida es de $"+inv;
+				document.getElementById("result2").innerHTML="La ganancia por año es de $"+grr;
+				document.getElementById("result3").innerHTML="Se gana $"+gana;
+  			}else{
+    			document.getElementById("result1").innerHTML="La cantidad ingresada es invalida";
+    			document.getElementById("result2").innerHTML="";
+    			document.getElementById("result3").innerHTML="";
+    			}
+
+
+    	}
+	</script>
+
+
+	<div class="container">
+		<form>
+			<h1>Calcula tu ganancia</h1>
+			<h4>Ingresa el total a invertir</h4>
+			<input type="number" name="inversion" id="inversion">
+			<input type="button" id="boton" value="Calcular gananacia" onclick="javascript:calcularGanancia();" />
+			<h4>Total: </h4>
+            <div id="result1"></div>
+            <div id="result2"></div>
+            <div id="result3"></div>
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio5</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+	<header>
+		<section id="menu">
+			<ul>
+				<a href="index.html">Inicio</a>
+				<a href="ejercicio1.html">Banco</a>
+				<a href="ejercicio2.html">Ventas</a>
+				<a href="ejercicio3.html">Tiendita</a>
+				<a href="ejercicio4.html">Calificacion</a>
+				<a href="ejercicio5.html">Porcentaje de alumnos</a>
+				<a href="ejercicio6.html">Calcula tu edad</a>
+			</ul>
+		</section>
+	</header>
+
+	<script type="text/javascript">
+		function validate_porcentaje(wario,mario){
+			var wario=parseInt(document.getElementById("mujeres").value);
+			var mario=parseInt(document.getElementById("hombres").value);
+  			try{
+	  			if (wario<0 || wario>50){
+	  				return false;
+	  			}else if(mario<0 || mario>50){
+	  				return false;
+	  			}else{
+	  				return true;
+	  			}
+	  		}catch{
+	  			return false;
+	  		}
+        }
+
+		function calcularPorcentaje(){
+			var wario=parseInt(document.getElementById("mujeres").value);
+			var mario=parseInt(document.getElementById("hombres").value);
+			if(validate_porcentaje(wario,mario)==true){
+				cien=wario+mario;
+				woman=((wario*100)/cien);
+				man=((mario*100)/cien);
+
+				document.getElementById("result").innerHTML="El "+man+"% son hombres, mientras que el "+woman;
+  			}else{
+    			document.getElementById("result").innerHTML="Las cantidades ingresadas son invalidas";
+    			}
+    		}
+	</script>
+
+
+	<div class="container">
+		<form>
+			<h1>Calcula el porcentaje</h1>
+			<h4>Ingresa el numero de hombres</h4>
+			<input type="number" name="hombres" id="hombres">
+			<h4>Ingresa el numero de mujeres</h4>
+			<input type="number" name="mujeres" id="mujeres">
+			<input type="button" id="boton" value="Calcular porcentaje" onclick="javascript:calcularPorcentaje();" />
+			<h4>Total: </h4>
+            <div id="result"></div>
+		</form>
+	</div>
+
+
+
+
+
+</body>
+</html>
